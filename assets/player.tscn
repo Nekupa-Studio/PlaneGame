@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0ykcd5lhh6s1"]
+[gd_scene load_steps=10 format=3 uid="uid://d0ykcd5lhh6s1"]
 
 [ext_resource type="Script" path="res://scripts/player_handler.gd" id="1_edv2w"]
 [ext_resource type="Texture2D" uid="uid://3mlpmgkml2x3" path="res://imports/jet01.png" id="2_o5k2o"]
@@ -42,6 +42,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gttsf"]
 size = Vector2(32, 32)
 
+[sub_resource type="Gradient" id="Gradient_jfc33"]
+colors = PackedColorArray(0.705846, 0.321319, 0.143817, 1, 0.144063, 0.144063, 0.144063, 1)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_edv2w")
 
@@ -52,8 +55,31 @@ autoplay = "default"
 frame_progress = 0.539249
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="Hitbox_shape" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_gttsf")
+
+[node name="Gun1" type="Node2D" parent="."]
+position = Vector2(-11, 0)
+
+[node name="Gun2" type="Node2D" parent="."]
+position = Vector2(12, 0)
+
+[node name="shoot_particle" type="CPUParticles2D" parent="."]
+position = Vector2(-11, 0)
+emitting = false
+amount = 20
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.9
+lifetime_randomness = 0.31
+local_coords = true
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+color_ramp = SubResource("Gradient_jfc33")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_entered"]

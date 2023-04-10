@@ -1,28 +1,62 @@
 extends CharacterBody2D
 class_name Player # On nomme la classe afin de pouvoir noter : if [thingie] is Player:
 
+const BULLET_SCENE = preload("res://assets/bullet.tscn")
+
 # Variables de type "export", accessibles dans l'inspecteur
 @export var speed := 225
+@export var attack_cooldown := 0.2
 
 # Variables de type "onready", s'initialisent seulement lorsque scène prête.
 @onready var sprite := $Sprite
+@onready var shoot_particle_system := $shoot_particle
 
 # Variables accessibles dans tout le script
 var friction = 0.08 # valeur entre 0 et 1 équivalent d'un %
 var shadow: Sprite2D 
-
-# Fonction appelée à chaque frame
+var attack_time: float = 0
+var gun_firing: int = 0
+var particle_systems: Array[CPUParticles2D]
 
 func _ready():
 	var shadow = Shadow.create_shadow(sprite)
 	add_child(shadow)
 	pass
 
+# Fonction appelée à chaque frame
 func _physics_process(delta):
+	# Incrémente la variable de temps par 1/60
+	attack_time += delta
+	
 	move()
+	
+	if Input.is_action_pressed("shoot") and attack_time > attack_cooldown:
+		shoot()
+		attack_time = 0
 
 func _process(delta):
 	pass
+
+func shoot():
+	var gun_positions = [$Gun1.global_position, $Gun2.global_position]
+	var bullet = BULLET_SCENE.instantiate()
+	
+	bullet.direction = Vector2(0,-1)
+	bullet.speed = 350
+	
+	gun_firing = (gun_firing+1)%2
+	var bullet_pos = [$Gun1.global_position, $Gun2.global_position][gun_firing]
+	bullet.position = bullet_pos
+	bullet.top_level = true
+	
+	# Code related to the firing particles
+	var shoot_particle = shoot_particle_system.duplicate()
+	shoot_particle.position = to_local(bullet_pos)
+	add_child(shoot_particle)
+	shoot_particle.emitting = true
+	shoot_particle.connect("property_list_changed", shoot_particle.queue_free)
+	
+	add_child(bullet)
 
 # Fonction dédiée au mouvement
 func move():
@@ -35,4 +69,10 @@ func move():
 
 # Fonction qui, lorsque que le signal d'une collision est reçu, est activée.
 func _on_hitbox_entered(area):
-	pass # On y touche pas pour l'instant
+	var col = area.get_parent()
+	if col is Enemy:
+		queue_free()
+	
+# Override get_class() function cuz it doesn't normally return custom classes.
+func _get_class():
+	return Player
