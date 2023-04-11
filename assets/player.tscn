@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0ykcd5lhh6s1"]
+[gd_scene load_steps=11 format=3 uid="uid://d0ykcd5lhh6s1"]
 
 [ext_resource type="Script" path="res://scripts/player_handler.gd" id="1_edv2w"]
 [ext_resource type="Texture2D" uid="uid://3mlpmgkml2x3" path="res://imports/jet01.png" id="2_o5k2o"]
@@ -45,6 +45,9 @@ size = Vector2(32, 32)
 [sub_resource type="Gradient" id="Gradient_jfc33"]
 colors = PackedColorArray(0.705846, 0.321319, 0.143817, 1, 0.144063, 0.144063, 0.144063, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i15ph"]
+size = Vector2(26, 31)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_edv2w")
 
@@ -81,5 +84,9 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 30.0
 initial_velocity_max = 50.0
 color_ramp = SubResource("Gradient_jfc33")
+
+[node name="collisions" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_i15ph")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_entered"]
