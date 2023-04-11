@@ -22,6 +22,10 @@ window/size/viewport_height=1440
 window/handheld/orientation=1
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="D:/Godot/Jeu Avions Pioupiou/waves.avi"
+
 [input]
 
 left={

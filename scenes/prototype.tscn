@@ -1,26 +1,64 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8xe538ycas4t"]
+[gd_scene load_steps=14 format=3 uid="uid://c8xe538ycas4t"]
 
 [ext_resource type="PackedScene" uid="uid://d0ykcd5lhh6s1" path="res://assets/player.tscn" id="1_1cpwp"]
 [ext_resource type="Shader" path="res://shaders/shadow_shader.gdshader" id="1_f4rrm"]
+[ext_resource type="Texture2D" uid="uid://c34cudbidi4ej" path="res://imports/gridtest.png" id="2_badrt"]
+[ext_resource type="Texture2D" uid="uid://c16ksgbnrlkra" path="res://imports/water-sheet.png" id="2_lwu3h"]
 [ext_resource type="Texture2D" uid="uid://culkjophcshqb" path="res://imports/water.png" id="2_uufl5"]
 [ext_resource type="PackedScene" uid="uid://cpwr3ily84krn" path="res://assets/enemy.tscn" id="3_cgmdh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6llqi"]
 shader = ExtResource("1_f4rrm")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ktckd"]
+texture = ExtResource("2_lwu3h")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ywgq0"]
 texture = ExtResource("2_uufl5")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_columns = 4
+0:0/animation_speed = 5.0
 0:0/animation_frame_0/duration = 1.0
 0:0/animation_frame_1/duration = 1.0
 0:0/animation_frame_2/duration = 1.0
 0:0/animation_frame_3/duration = 1.0
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8j3m"]
+texture = ExtResource("2_badrt")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 10
+0:0/animation_speed = 20.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_pujws"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_ywgq0")
+sources/10 = SubResource("TileSetAtlasSource_ywgq0")
+sources/20 = SubResource("TileSetAtlasSource_a8j3m")
+sources/0 = SubResource("TileSetAtlasSource_ktckd")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km3ov"]
 size = Vector2(250, 482)
@@ -32,6 +70,7 @@ size = Vector2(242, 481)
 material = SubResource("ShaderMaterial_6llqi")
 
 [node name="Water" type="TileMap" parent="."]
+modulate = Color(0.701961, 0.701961, 0.701961, 1)
 z_index = -5
 texture_filter = 1
 tile_set = SubResource("TileSet_pujws")
