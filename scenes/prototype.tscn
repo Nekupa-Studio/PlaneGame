@@ -10,10 +10,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6llqi"]
 shader = ExtResource("1_f4rrm")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ktckd"]
-texture = ExtResource("2_lwu3h")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8j3m"]
+texture = ExtResource("2_badrt")
 texture_region_size = Vector2i(32, 32)
-0:0/animation_speed = 10.0
+0:0/animation_columns = 10
+0:0/animation_speed = 20.0
 0:0/animation_frame_0/duration = 1.0
 0:0/animation_frame_1/duration = 1.0
 0:0/animation_frame_2/duration = 1.0
@@ -37,11 +38,10 @@ texture_region_size = Vector2i(32, 32)
 0:0/animation_frame_3/duration = 1.0
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8j3m"]
-texture = ExtResource("2_badrt")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ktckd"]
+texture = ExtResource("2_lwu3h")
 texture_region_size = Vector2i(32, 32)
-0:0/animation_columns = 10
-0:0/animation_speed = 20.0
+0:0/animation_speed = 10.0
 0:0/animation_frame_0/duration = 1.0
 0:0/animation_frame_1/duration = 1.0
 0:0/animation_frame_2/duration = 1.0
@@ -57,8 +57,8 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_pujws"]
 tile_size = Vector2i(32, 32)
 sources/10 = SubResource("TileSetAtlasSource_ywgq0")
-sources/20 = SubResource("TileSetAtlasSource_a8j3m")
-sources/0 = SubResource("TileSetAtlasSource_ktckd")
+sources/12 = SubResource("TileSetAtlasSource_ktckd")
+sources/0 = SubResource("TileSetAtlasSource_a8j3m")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km3ov"]
 size = Vector2(250, 482)
@@ -70,6 +70,7 @@ size = Vector2(242, 481)
 material = SubResource("ShaderMaterial_6llqi")
 
 [node name="Water" type="TileMap" parent="."]
+visible = false
 modulate = Color(0.701961, 0.701961, 0.701961, 1)
 z_index = -5
 texture_filter = 1
@@ -130,12 +131,22 @@ zoom = Vector2(3, 3)
 
 [node name="enemy" parent="." instance=ExtResource("3_cgmdh")]
 position = Vector2(342, 99)
+elevation = 0.0
 
 [node name="enemy2" parent="." instance=ExtResource("3_cgmdh")]
 position = Vector2(365, 99)
+elevation = 0.0
 
 [node name="enemy3" parent="." instance=ExtResource("3_cgmdh")]
 position = Vector2(487, 100)
 
 [node name="enemy4" parent="." instance=ExtResource("3_cgmdh")]
 position = Vector2(515, 100)
+
+[node name="enemy5" parent="." instance=ExtResource("3_cgmdh")]
+position = Vector2(411, 152)
+elevation = 100.0
+
+[node name="enemy6" parent="." instance=ExtResource("3_cgmdh")]
+position = Vector2(439, 152)
+elevation = 100.0

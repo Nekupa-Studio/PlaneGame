@@ -5,6 +5,7 @@ const LIFETIME = 3
 
 var speed: int
 var direction: Vector2
+var elevation: float
 
 var time_lived: float = 0
 
