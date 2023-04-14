@@ -58,7 +58,6 @@ autoplay = "default"
 frame_progress = 0.539249
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 
 [node name="Hitbox_shape" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_gttsf")
@@ -89,4 +88,4 @@ color_ramp = SubResource("Gradient_jfc33")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_i15ph")
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

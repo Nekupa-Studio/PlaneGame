@@ -1,7 +1,8 @@
-extends CharacterBody2D
+extends CustomCharacter
 class_name Player # On nomme la classe afin de pouvoir noter : if [thingie] is Player:
 
 const BULLET_SCENE = preload("res://assets/bullet.tscn")
+const ELEV_LERP_FACTOR = 0.12
 
 # Variables de type "export", accessibles dans l'inspecteur
 @export var speed := 225
@@ -13,16 +14,9 @@ const BULLET_SCENE = preload("res://assets/bullet.tscn")
 
 # Variables accessibles dans tout le script
 var friction: float = 0.08 # valeur entre 0 et 1 équivalent d'un %
-var shadow: AnimatedSprite2D
 var attack_time: float = 0
 var gun_firing: int = 0
 var particle_systems: Array[CPUParticles2D]
-var elevation: float = 50 # Goes from 1-100, if you go down too much: KABOOM
-
-func _ready():
-	# Création de l'ombre
-	shadow = Shadow.create_shadow(sprite)
-	add_child(shadow)
 
 # Fonction appelée à chaque frame
 func _physics_process(delta):
@@ -36,15 +30,6 @@ func _physics_process(delta):
 		shoot()
 		attack_time = 0
 
-func _process(delta):
-	elevation_update()
-
-func elevation_update():
-	# Met à jour l'ombre, la taille et le z_index de l'object en fonction de l'élévation
-	shadow.position = Shadow.SHADOW_OFFSET * ((elevation/100) + 0.5)
-	scale = Vector2(1,1) * ((elevation/100) + 0.5)
-	z_index = elevation
-
 func shoot():
 	var gun_positions = [$Gun1.global_position, $Gun2.global_position]
 	var bullet = BULLET_SCENE.instantiate()
@@ -55,10 +40,11 @@ func shoot():
 	gun_firing = (gun_firing+1)%2
 	var bullet_pos = [$Gun1.global_position, $Gun2.global_position][gun_firing]
 	bullet.position = bullet_pos
+	bullet.creator = self
 	bullet.scale = scale
-	bullet.top_level = true
 	bullet.elevation = elevation
 	bullet.z_index = elevation
+	bullet.top_level = true
 	
 	# Code related to the firing particles
 	var shoot_particle = shoot_particle_system.duplicate()
@@ -78,16 +64,9 @@ func move():
 	
 	# Système d'élévation, elev_in -> [0,100]
 	var elev_in = ((Input.get_axis("descent", "elevate")+1)/2) * 100
-	elevation = lerp(elevation, elev_in, friction)
+	elevation = lerp(elevation, elev_in, ELEV_LERP_FACTOR)
 	
 	move_and_slide()
 
-# Fonction qui, lorsque que le signal d'une collision est reçu, est activée.
-func _on_hitbox_entered(area):
-	var col = area.get_parent()
-	if col is Enemy and abs(elevation - col.elevation) < 5:
-		queue_free()
-	
-# Override get_class() function cuz it doesn't normally return custom classes.
 func _get_class():
 	return Player

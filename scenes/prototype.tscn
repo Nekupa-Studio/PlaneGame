@@ -69,8 +69,13 @@ size = Vector2(242, 481)
 [node name="Prototype" type="Node2D"]
 material = SubResource("ShaderMaterial_6llqi")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1, 1)
+skew = 0.26529
+anchor_mode = 0
+zoom = Vector2(3, 3)
+
 [node name="Water" type="TileMap" parent="."]
-visible = false
 modulate = Color(0.701961, 0.701961, 0.701961, 1)
 z_index = -5
 texture_filter = 1
@@ -123,11 +128,6 @@ offset_left = -250.0
 grow_horizontal = 0
 grow_vertical = 2
 color = Color(0.156863, 0.0235294, 0.121569, 1)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-skew = 0.26529
-anchor_mode = 0
-zoom = Vector2(3, 3)
 
 [node name="enemy" parent="." instance=ExtResource("3_cgmdh")]
 position = Vector2(342, 99)
