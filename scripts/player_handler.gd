@@ -20,18 +20,18 @@ var particle_systems: Array[CPUParticles2D]
 
 # Fonction appelée à chaque frame
 func _physics_process(delta):
+	super(delta)
+	
 	# Incrémente la variable de temps par 1/60
 	attack_time += delta
-	
-	move()
-	
 	# Gère le pew pew
 	if Input.is_action_pressed("shoot") and attack_time > attack_cooldown:
 		shoot()
 		attack_time = 0
+	
+	move()
 
 func shoot():
-	var gun_positions = [$Gun1.global_position, $Gun2.global_position]
 	var bullet = BULLET_SCENE.instantiate()
 	
 	bullet.direction = Vector2(0,-1)

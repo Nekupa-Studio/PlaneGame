@@ -87,5 +87,3 @@ color_ramp = SubResource("Gradient_jfc33")
 [node name="collisions" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_i15ph")
-
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

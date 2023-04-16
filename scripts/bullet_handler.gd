@@ -9,6 +9,8 @@ var time_lived: float = 0
 var penetration_power: int = 1
 
 func _physics_process(delta):
+	super(delta)
+	
 	time_lived += delta
 	
 	velocity = direction * speed
@@ -18,7 +20,7 @@ func _physics_process(delta):
 	if time_lived > LIFETIME:
 		queue_free()
 
-func handle_hit():
+func handle_hit(_col):
 	penetration_power -= 1
 	if penetration_power <= 0:
 		queue_free()

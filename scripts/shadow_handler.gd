@@ -1,4 +1,3 @@
-extends Node
 class_name Shadow
 
 const SHADOW_OFFSET := Vector2(20, 20)

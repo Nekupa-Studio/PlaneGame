@@ -5,6 +5,7 @@
 
 [node name="weak_shooter_enemy" type="CharacterBody2D"]
 script = ExtResource("1_rh7vn")
+elevation = null
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -15,5 +16,3 @@ flip_v = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox"]
 polygon = PackedVector2Array(-12, -10, 12, -10, 12, -7, 2, 9, 2, 14, 1, 16, -1, 16, -2, 14, -2, 9, -12, -7)
-
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

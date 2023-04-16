@@ -1,4 +1,3 @@
-extends Node
 class_name Elevation
 
 const STATE_HEIGHT = 25
