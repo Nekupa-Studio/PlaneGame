@@ -6,10 +6,10 @@ It’s about planes
 <h2>Liste des choses qui manquent au projet:</h2>
 
 - Une musique d’ambiance\
- - **pour** compléter l’ambiance synthwave
+	- **pour** compléter l’ambiance synthwave
 
 - IA des ennemis\
- - **pour** le jeu en lui même
+	- **pour** le jeu en lui même
 
 - Différent type d'ennemis\
  - **pour** la diversité et qu'il soit nécessaire d'être stratégique
