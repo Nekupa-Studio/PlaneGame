@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8xe538ycas4t"]
+[gd_scene load_steps=15 format=3 uid="uid://c8xe538ycas4t"]
 
 [ext_resource type="PackedScene" uid="uid://d0ykcd5lhh6s1" path="res://assets/player.tscn" id="1_1cpwp"]
 [ext_resource type="Shader" path="res://shaders/shadow_shader.gdshader" id="1_f4rrm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c16ksgbnrlkra" path="res://imports/water-sheet.png" id="2_lwu3h"]
 [ext_resource type="Texture2D" uid="uid://culkjophcshqb" path="res://imports/water.png" id="2_uufl5"]
 [ext_resource type="PackedScene" uid="uid://cpwr3ily84krn" path="res://assets/enemy.tscn" id="3_cgmdh"]
+[ext_resource type="PackedScene" uid="uid://dkp3flc8rotqy" path="res://assets/plane_spawn.tscn" id="7_0ykbg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6llqi"]
 shader = ExtResource("1_f4rrm")
@@ -149,3 +150,8 @@ elevation = 100.0
 [node name="enemy6" parent="." instance=ExtResource("3_cgmdh")]
 position = Vector2(448, 152)
 elevation = 100.0
+
+[node name="PlaneSpawn" parent="." instance=ExtResource("7_0ykbg")]
+position = Vector2(424, 48)
+PLANE_TYPE = ExtResource("3_cgmdh")
+ELEVATION_LEVEL = 1

@@ -20,5 +20,8 @@ static func get_elev_state(obj: CustomCharacter):
 		if obj.elevation >= (ELEVATION_STATES[state] * STATE_HEIGHT) - 1:
 			return state
 
+static func get_elev_from_state(state: ELEVATION_STATES):
+	return (state - 1) * (2 * STATE_HEIGHT)
+
 static func check_state(obj1: CustomCharacter, obj2: CustomCharacter):
 	return get_elev_state(obj1) == get_elev_state(obj2)

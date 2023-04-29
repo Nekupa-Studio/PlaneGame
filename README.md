@@ -5,6 +5,14 @@ It’s about planes
 
 <h2>Liste des choses qui manquent au projet:</h2>
 
+- Système de mort
+	- Particules
+	- Respawn
+	- **OPTIONNEL :** Vies
+	
+- Faire système de chemins.
+	- **Dans** classe PlaneSpawner
+
 - Une musique d’ambiance
 	- **pour** compléter l’ambiance synthwave
 

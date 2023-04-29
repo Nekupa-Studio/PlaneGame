@@ -55,6 +55,10 @@ func shoot():
 	
 	add_child(bullet)
 
+func handle_hit(col):
+	if col is Enemy:
+		print("KABOOM")
+
 # Fonction dédiée au mouvement
 func move():
 	# Récupération des entrées du joueur pour connaitre la direction du joueur
