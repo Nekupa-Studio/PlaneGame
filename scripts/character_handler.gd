@@ -16,6 +16,7 @@ func _ready():
 			hitbox = child
 
 func _physics_process(delta):
+	# Checks collisions manually each frame
 	for hit in hitbox.get_overlapping_areas():
 		var col = hit.get_parent()
 		check_collision(col)
