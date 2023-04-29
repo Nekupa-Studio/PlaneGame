@@ -41,9 +41,7 @@ func shoot():
 	var bullet_pos = [$Gun1.global_position, $Gun2.global_position][gun_firing]
 	bullet.position = bullet_pos
 	bullet.creator = self
-	bullet.scale = scale
 	bullet.elevation = elevation
-	bullet.z_index = elevation
 	bullet.top_level = true
 	
 	# Code related to the firing particles

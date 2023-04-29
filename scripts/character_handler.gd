@@ -18,9 +18,9 @@ func _ready():
 func _physics_process(delta):
 	for hit in hitbox.get_overlapping_areas():
 		var col = hit.get_parent()
-		handle_collision(col)
+		check_collision(col)
 
-func handle_collision(col):
+func check_collision(col):
 	var is_custom_class = col is CustomCharacter
 	var is_creation = col.creator == self
 	var is_creator = col == self.creator

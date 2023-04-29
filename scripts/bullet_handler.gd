@@ -23,6 +23,7 @@ func _physics_process(delta):
 func handle_hit(_col):
 	penetration_power -= 1
 	if penetration_power <= 0:
+		hitbox.monitoring = false
 		queue_free()
 
 func _get_class():
