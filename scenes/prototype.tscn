@@ -71,6 +71,7 @@ size = Vector2(242, 481)
 material = SubResource("ShaderMaterial_6llqi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1.25585, 2.67462)
 skew = 0.26529
 anchor_mode = 0
 zoom = Vector2(2.245, 2.245)

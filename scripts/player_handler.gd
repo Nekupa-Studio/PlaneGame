@@ -1,4 +1,4 @@
-extends CustomCharacter
+extends Planes
 class_name Player
 
 const BULLET_SCENE = preload("res://assets/bullet.tscn")
@@ -50,7 +50,7 @@ func shoot():
 
 func handle_hit(col):
 	if col is Enemy:
-		print("KABOOM")
+		crash_plane()
 
 # Moving the player
 func move():
