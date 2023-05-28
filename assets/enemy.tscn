@@ -1,18 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://cpwr3ily84krn"]
 
-[ext_resource type="Texture2D" uid="uid://ceccv84cxh4h3" path="res://imports/avion synthwave.png" id="1_q04cd"]
 [ext_resource type="Script" path="res://scripts/weak_shooter_enemy_handler.gd" id="1_rh7vn"]
+[ext_resource type="Texture2D" uid="uid://dj1g610w2kk0k" path="res://imports/test_ennemis.png" id="2_qecpi"]
 
 [node name="weak_shooter_enemy" type="CharacterBody2D"]
 script = ExtResource("1_rh7vn")
-elevation = null
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_q04cd")
-flip_v = true
+texture = ExtResource("2_qecpi")
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox"]
-polygon = PackedVector2Array(-12, -10, 12, -10, 12, -7, 2, 9, 2, 14, 1, 16, -1, 16, -2, 14, -2, 9, -12, -7)
+polygon = PackedVector2Array(-3, 14, 3, 14, 3, 5, 15, 5, 15, 0, -15, 0, -15, 5, -3, 5)

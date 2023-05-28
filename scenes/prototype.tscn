@@ -73,7 +73,7 @@ material = SubResource("ShaderMaterial_6llqi")
 [node name="Camera2D" type="Camera2D" parent="."]
 skew = 0.26529
 anchor_mode = 0
-zoom = Vector2(3, 3)
+zoom = Vector2(2.245, 2.245)
 
 [node name="Water" type="TileMap" parent="."]
 modulate = Color(0.701961, 0.701961, 0.701961, 1)
