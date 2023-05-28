@@ -73,7 +73,7 @@ metadata/_edit_horizontal_guides_ = [-112.0]
 metadata/_edit_vertical_guides_ = [424.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(1.25806, 2.67462)
+scale = Vector2(1.25806, 2.66341)
 skew = 0.26529
 anchor_mode = 0
 zoom = Vector2(2.245, 2.245)
@@ -133,25 +133,25 @@ grow_vertical = 2
 color = Color(0.156863, 0.0235294, 0.121569, 1)
 
 [node name="enemy" parent="." instance=ExtResource("3_cgmdh")]
-position = Vector2(336, 99)
+position = Vector2(336, -64)
 elevation = 0.0
 
 [node name="enemy2" parent="." instance=ExtResource("3_cgmdh")]
-position = Vector2(365, 99)
+position = Vector2(365, -64)
 elevation = 0.0
 
 [node name="enemy3" parent="." instance=ExtResource("3_cgmdh")]
-position = Vector2(487, 100)
+position = Vector2(487, -63)
 
 [node name="enemy4" parent="." instance=ExtResource("3_cgmdh")]
-position = Vector2(520, 100)
+position = Vector2(520, -63)
 
 [node name="enemy5" parent="." instance=ExtResource("3_cgmdh")]
-position = Vector2(400, 152)
+position = Vector2(400, -11)
 elevation = 100.0
 
 [node name="enemy6" parent="." instance=ExtResource("3_cgmdh")]
-position = Vector2(448, 152)
+position = Vector2(448, -11)
 elevation = 100.0
 
 [node name="PlaneSpawn" parent="." instance=ExtResource("7_0ykbg")]

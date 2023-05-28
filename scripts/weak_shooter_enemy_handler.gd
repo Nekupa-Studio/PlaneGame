@@ -17,7 +17,7 @@ func _physics_process(delta):
 	
 	print(position.y)
 	
-	if position.y > 550 or position.y < 0:
+	if position.y > 600 or position.y < -100:
 		sprite.flip_v = !sprite.flip_v
 		direction = -direction
 
