@@ -4,7 +4,7 @@ class_name Player
 const BULLET_SCENE = preload("res://assets/bullet.tscn")
 const ELEV_LERP_FACTOR = 0.12
 
-@export var speed := 225
+@export var speed := 250
 @export var attack_cooldown := 0.2
 
 @onready var sprite := $Sprite

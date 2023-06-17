@@ -1,8 +1,10 @@
 extends Planes
 class_name Enemy
 
-var speed: int = 60
+var speed: int = 120
 var direction := Vector2(0,1)
+var textures = [preload("res://imports/test_ennemis.png"), preload("res://imports/ennemis_planegame_base_reverse.png")]
+var texture_index := 0
 
 @onready var sprite = $sprite
 	
@@ -15,10 +17,10 @@ func _physics_process(delta):
 	velocity = direction * speed
 	move_and_slide()
 	
-	print(position.y)
-	
 	if position.y > 600 or position.y < -100:
-		sprite.flip_v = !sprite.flip_v
+		texture_index = (texture_index + 1) % 2
+		sprite.texture = textures[texture_index]
+		shadow.flip_v = !shadow.flip_v
 		direction = -direction
 
 
