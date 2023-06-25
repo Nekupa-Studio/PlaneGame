@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://fkyb0ec88afs"]
+[gd_scene load_steps=2 format=3 uid="uid://fkyb0ec88afs"]
+
+[ext_resource type="Script" path="res://scripts/ui_handler.gd" id="1_ndm5o"]
 
 [node name="main_ui" type="CanvasLayer"]
+script = ExtResource("1_ndm5o")
 
 [node name="main_control" type="Control" parent="."]
 layout_mode = 3
@@ -10,14 +13,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="main_control"]
-custom_minimum_size = Vector2(400, 0)
+[node name="healthbg" type="ColorRect" parent="main_control"]
+modulate = Color(1, 1, 1, 0.384314)
+custom_minimum_size = Vector2(600, 60)
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = -64.0
-offset_right = 424.0
-offset_bottom = -24.0
+offset_left = -304.0
+offset_top = -80.0
+offset_right = 296.0
+offset_bottom = -20.0
+grow_horizontal = 2
 grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="main_control/healthbg"]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]MAIN BASE HEALTH"
+
+[node name="healthfill" type="ColorRect" parent="main_control/healthbg"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0125
+anchor_top = 0.125
+anchor_right = 0.9875
+anchor_bottom = 0.875
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.835294, 0, 0.109804, 1)
+metadata/_edit_use_anchors_ = true

@@ -22,12 +22,13 @@ func _physics_process(delta):
 		check_collision(col)
 
 func check_collision(col):
-	var is_custom_class = col is CustomCharacter
+	if not col is CustomCharacter:
+		return
 	var is_creation = col.creator == self
 	var is_creator = col == self.creator
 	var is_same_level = Elevation.check_state(col, self)
 	
-	if is_custom_class and not (is_creation or is_creator) and is_same_level:
+	if not (is_creation or is_creator) and is_same_level:
 		handle_hit(col)
 
 func _process(delta):
