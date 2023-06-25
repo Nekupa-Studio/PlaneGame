@@ -126,7 +126,4 @@ ELEVATION_LEVEL = 2
 [node name="base" parent="." instance=ExtResource("10_3fkpm")]
 position = Vector2(424, 1480)
 
-[node name="weak_shooter_enemy" parent="." instance=ExtResource("3_cgmdh")]
-position = Vector2(224, 1410)
-
 [connection signal="health_changed" from="base" to="main_ui" method="update_health"]
