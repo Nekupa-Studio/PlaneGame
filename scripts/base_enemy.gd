@@ -11,6 +11,8 @@ var texture_index := 0
 func handle_hit(col):
 	if col is Bullet or col is Player:
 		crash_plane()
+		if col is Player:
+			col.crash_plane()
 
 func _physics_process(delta):
 	super(delta)

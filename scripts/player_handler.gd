@@ -49,7 +49,7 @@ func shoot():
 	add_child(bullet)
 
 func handle_hit(col):
-	if col is Enemy:
+	if col is Enemy or (col is Bullet and col.creator != self):
 		crash_plane()
 
 # Moving the player

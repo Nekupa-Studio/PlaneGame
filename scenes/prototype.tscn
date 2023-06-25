@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8xe538ycas4t"]
+[gd_scene load_steps=15 format=3 uid="uid://c8xe538ycas4t"]
 
 [ext_resource type="PackedScene" uid="uid://d0ykcd5lhh6s1" path="res://assets/player.tscn" id="1_1cpwp"]
 [ext_resource type="Shader" path="res://shaders/shadow_shader.gdshader" id="1_f4rrm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bdube1fexftkf" path="res://assets/enemy.tscn" id="3_cgmdh"]
 [ext_resource type="Script" path="res://scripts/camera_follow.gd" id="5_sum8m"]
 [ext_resource type="PackedScene" uid="uid://dkp3flc8rotqy" path="res://assets/plane_spawn.tscn" id="7_0ykbg"]
+[ext_resource type="PackedScene" uid="uid://fkyb0ec88afs" path="res://assets/main_ui.tscn" id="9_55bld"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6llqi"]
 shader = ExtResource("1_f4rrm")
@@ -118,3 +119,5 @@ position = Vector2(512, -32)
 PLANE_TYPE = ExtResource("3_cgmdh")
 SPAWN_INTERVAL = 4.0
 ELEVATION_LEVEL = 2
+
+[node name="main_ui" parent="." instance=ExtResource("9_55bld")]

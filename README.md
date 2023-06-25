@@ -30,7 +30,7 @@ It’s about planes
 - Une storyline
 	- **pour** ajouter de la profondeur au jeu
 
-- Un système de création de level
+- Un système de création de level [PEUT ETRE PAS NECESSAIRE]
 	- **pour** el customisation !
 
 - Un menu principal
