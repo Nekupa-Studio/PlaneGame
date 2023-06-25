@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpwr3ily84krn"]
+[gd_scene load_steps=3 format=3 uid="uid://bdube1fexftkf"]
 
-[ext_resource type="Script" path="res://scripts/weak_shooter_enemy_handler.gd" id="1_rh7vn"]
+[ext_resource type="Script" path="res://scripts/base_enemy.gd" id="1_sgp7r"]
 [ext_resource type="Texture2D" uid="uid://dj1g610w2kk0k" path="res://imports/test_ennemis.png" id="2_qecpi"]
 
 [node name="weak_shooter_enemy" type="CharacterBody2D"]
-script = ExtResource("1_rh7vn")
+script = ExtResource("1_sgp7r")
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1

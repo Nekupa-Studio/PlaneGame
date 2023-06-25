@@ -5,7 +5,7 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.609272, 1)
 colors = PackedColorArray(0.975079, 0.403674, 0, 1, 0.868281, 0, 0.101034, 1, 0, 0, 0, 1)
 
-[node name="Node2D" type="CPUParticles2D"]
+[node name="explosion_emitter" type="CPUParticles2D"]
 emitting = false
 amount = 50
 one_shot = true

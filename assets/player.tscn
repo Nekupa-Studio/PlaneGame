@@ -57,9 +57,9 @@ sprite_frames = SubResource("SpriteFrames_hgjsl")
 autoplay = "default"
 frame_progress = 0.539249
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="."]
 
-[node name="Hitbox_shape" type="CollisionShape2D" parent="Hitbox"]
+[node name="Hitbox_shape" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("RectangleShape2D_gttsf")
 
 [node name="Gun1" type="Node2D" parent="."]

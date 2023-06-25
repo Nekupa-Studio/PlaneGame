@@ -6,20 +6,19 @@ It’s about planes
 <h2>Liste des choses qui manquent au projet:</h2>
 
 - Système de mort
-	- Particules
 	- Respawn
 	- **OPTIONNEL :** Vies
 	
-- Faire système de chemins.
+- Faire système de chemins. [PEUT ETRE PAS NECESSAIRE]
 	- **Dans** classe PlaneSpawner
 
-- Une musique d’ambiance
+- Une musique d’ambiance [PEUT ETRE PAS NECESSAIRE]
 	- **pour** compléter l’ambiance synthwave
 
 - IA des ennemis
 	- **pour** le jeu en lui même
 
-- Différent type d'ennemis
+- Différent type d'ennemis 
  - **pour** la diversité et qu'il soit nécessaire d'être stratégique
 
 - Des power-ups

@@ -16,13 +16,6 @@ func _physics_process(delta):
 	super(delta)
 	velocity = direction * speed
 	move_and_slide()
-	
-	if position.y > 600 or position.y < -100:
-		texture_index = (texture_index + 1) % 2
-		sprite.texture = textures[texture_index]
-		shadow.flip_v = !shadow.flip_v
-		direction = -direction
-
 
 func _get_class():
 	return Enemy

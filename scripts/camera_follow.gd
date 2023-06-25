@@ -11,7 +11,7 @@ func _ready():
 	camera_half_height = get_viewport_rect().size.y/(2*zoom.y)
 	
 
-# Following the character according to y coord. TODO: no hardcoding.
+# Following the character according to y coord.
 func _physics_process(delta):
 	if following:
 		position.y = followed.position.y - camera_half_height

@@ -12,7 +12,7 @@ func _ready():
 		if child is AnimatedSprite2D or child is Sprite2D:
 			shadow = Shadow.create_shadow(child)
 			add_child(shadow)
-		elif child is Area2D:
+		elif child is Area2D and child.name == "hitbox":
 			hitbox = child
 
 func _physics_process(delta):
