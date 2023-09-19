@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi80jrlk0m7dg"]
+[gd_scene load_steps=16 format=3 uid="uid://djtx53wa51tip"]
 
 [ext_resource type="PackedScene" uid="uid://d0ykcd5lhh6s1" path="res://assets/player.tscn" id="1_1cpwp"]
 [ext_resource type="Shader" path="res://shaders/shadow_shader.gdshader" id="1_f4rrm"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bdube1fexftkf" path="res://assets/enemy.tscn" id="3_cgmdh"]
 [ext_resource type="Script" path="res://scripts/camera_follow.gd" id="5_sum8m"]
 [ext_resource type="PackedScene" uid="uid://dkp3flc8rotqy" path="res://assets/plane_spawn.tscn" id="7_0ykbg"]
-[ext_resource type="PackedScene" uid="uid://fkyb0ec88afs" path="res://assets/main_ui.tscn" id="9_55bld"]
+[ext_resource type="PackedScene" uid="uid://fkyb0ec88afs" path="res://assets/game_ui.tscn" id="9_55bld"]
 [ext_resource type="PackedScene" uid="uid://0n1edeq4hnb8" path="res://assets/base.tscn" id="10_3fkpm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6llqi"]
@@ -66,8 +66,9 @@ sources/0 = SubResource("TileSetAtlasSource_a8j3m")
 
 [node name="Prototype" type="Node2D"]
 material = SubResource("ShaderMaterial_6llqi")
+metadata/_edit_vertical_guides_ = [0.0]
 
-[node name="main_ui" parent="." instance=ExtResource("9_55bld")]
+[node name="game_ui" parent="." instance=ExtResource("9_55bld")]
 
 [node name="Water" type="TileMap" parent="."]
 modulate = Color(0.701961, 0.701961, 0.701961, 1)
@@ -124,6 +125,7 @@ SPAWN_INTERVAL = 4.0
 ELEVATION_LEVEL = 2
 
 [node name="base" parent="." instance=ExtResource("10_3fkpm")]
-position = Vector2(424, 1480)
+position = Vector2(432, 1480)
 
-[connection signal="health_changed" from="base" to="main_ui" method="update_health"]
+[connection signal="gear_changed" from="Player" to="game_ui" method="update_gears"]
+[connection signal="health_changed" from="base" to="game_ui" method="update_health"]

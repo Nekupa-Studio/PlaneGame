@@ -1,6 +1,8 @@
 extends Planes
 class_name Player
 
+signal gear_changed(gears)
+
 const BULLET_SCENE = preload("res://assets/bullet.tscn")
 const ELEV_LERP_FACTOR = 0.12
 
@@ -9,6 +11,8 @@ const ELEV_LERP_FACTOR = 0.12
 
 @onready var sprite := $Sprite
 @onready var shoot_particle_system := $shoot_particle
+
+var gears: int = 0
 
 var friction: float = 0.08
 var attack_time: float = 0
@@ -64,6 +68,10 @@ func move():
 	elevation = lerp(elevation, elev_target, ELEV_LERP_FACTOR)
 	
 	move_and_slide()
+
+func add_gear(change):
+	gears += change
+	emit_signal("gear_changed", gears)
 
 func _get_class():
 	return Player
