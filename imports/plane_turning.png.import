@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c34cudbidi4ej"
-path="res://.godot/imported/gridtest.png-356e502519ab2f5fc33780af02a2b353.ctex"
+uid="uid://bpbu7yiamgp0r"
+path="res://.godot/imported/plane_turning.png-680598846f6fc3e12ca14d0e0ddf7dc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imports/gridtest.png"
-dest_files=["res://.godot/imported/gridtest.png-356e502519ab2f5fc33780af02a2b353.ctex"]
+source_file="res://imports/plane_turning.png"
+dest_files=["res://.godot/imported/plane_turning.png-680598846f6fc3e12ca14d0e0ddf7dc5.ctex"]
 
 [params]
 
