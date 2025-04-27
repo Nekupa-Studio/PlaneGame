@@ -1,7 +1,6 @@
-extends CharacterBody2D
+extends GameActor
 class_name Bullet
 
-var creator: Node2D 
 var data: BulletResource
 var direction: Vector2
 
@@ -9,9 +8,11 @@ var lifetime: float
 var lived: float
 
 func _ready() -> void:
-	assert(creator, "No creator specified for Bullet %s." % name)
-	assert(data, "No data specified for Bullet %s." % name)
-	assert(direction, "No direction specified for Bullet %s." % name)
+	assert(actor_type, "No creator specified for Bullet at %s." % get_path())
+	assert(data, "No data specified for Bullet at %s." % get_path())
+	assert(direction, "No direction specified for Bullet at %s." % get_path())
+	
+	modulate = data.modulate
 	
 	lifetime = data.bullet_range / data.speed
 	

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends GameActor
 class_name Player
 
 @export var speed: float = 200.0
@@ -22,7 +22,7 @@ func move() -> void:
 	move_and_slide()
 
 func _ready() -> void:
-	assert(shoot_system, "Player ShootingSystem wasn't initialized at %s." % name)
+	assert(shoot_system, "Player ShootingSystem wasn't initialized at %s." % get_path())
 	
 func _physics_process(_delta: float) -> void:
 	

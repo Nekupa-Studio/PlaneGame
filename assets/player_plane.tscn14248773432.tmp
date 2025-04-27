@@ -21,7 +21,6 @@ size = Vector2(30, 8)
 texture_filter = 1
 script = ExtResource("1_jouck")
 shoot_system = NodePath("shooting_system")
-actor_type = 1
 
 [node name="shooting_system" type="Node2D" parent="." node_paths=PackedStringArray("firing_points")]
 script = ExtResource("2_nptsn")
@@ -32,7 +31,7 @@ firing_points = [NodePath("../left_gun"), NodePath("../right_gun")]
 script = ExtResource("4_16p68")
 plane_data = ExtResource("5_wh7iy")
 hitbox = NodePath("../hitbox")
-enemy_type = -1
+enemy_bullet = -1
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1

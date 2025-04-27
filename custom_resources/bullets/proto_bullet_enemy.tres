@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BulletResource" load_steps=2 format=3 uid="uid://dibtgt0yuqfxi"]
+
+[ext_resource type="Script" uid="uid://wqivct5bd50b" path="res://res_definition/bullet_ressource.gd" id="1_ewnfq"]
+
+[resource]
+script = ExtResource("1_ewnfq")
+modulate = Color(1, 0.0909423, 0.0594644, 1)
+damage = 1.0
+speed = 300.0
+bullet_range = 500.0
+firing_mode = 0
+cooldown = 0.1
+metadata/_custom_type_script = "uid://wqivct5bd50b"

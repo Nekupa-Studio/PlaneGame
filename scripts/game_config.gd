@@ -5,3 +5,5 @@ extends Node
 # --- BULLETS --- 
 
 const BULLET_LAYER = -1
+
+const MIN_DAMAGE = 1

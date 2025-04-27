@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlaneResource" load_steps=2 format=3 uid="uid://ijbi1r86jdgm"]
+
+[ext_resource type="Script" uid="uid://cethejtjtp5dy" path="res://res_definition/plane_resource.gd" id="1_h6bsp"]
+
+[resource]
+script = ExtResource("1_h6bsp")
+health = 10.0
+armor = 0.0
+barrier = 0.0
+metadata/_custom_type_script = "uid://cethejtjtp5dy"

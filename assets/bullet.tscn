@@ -13,7 +13,9 @@ script = ExtResource("1_rcgj2")
 texture = ExtResource("1_5orsb")
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="hitbox_area" type="CollisionShape2D" parent="hitbox"]
+visible = false
 shape = SubResource("CircleShape2D_ev345")
 debug_color = Color(0.997394, 0, 0.166923, 0.42)
