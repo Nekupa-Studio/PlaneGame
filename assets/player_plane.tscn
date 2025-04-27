@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://c554anqe0gulh"]
+
+[ext_resource type="Script" uid="uid://1i7e0shlvsw2" path="res://scripts/player_handler.gd" id="1_jouck"]
+[ext_resource type="Texture2D" uid="uid://cw2miafgklw1j" path="res://imports/plane.png" id="2_7kyp2"]
+[ext_resource type="Script" uid="uid://br5ymhmeeio48" path="res://scripts/shooting_system.gd" id="2_nptsn"]
+[ext_resource type="Resource" uid="uid://co3qb18uxgc2w" path="res://custom_resources/bullets/proto_bullet.tres" id="3_nptsn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nptsn"]
+size = Vector2(30, 25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_16p68"]
+radius = 5.5
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh7iy"]
+size = Vector2(30, 8)
+
+[node name="player_plane" type="CharacterBody2D" node_paths=PackedStringArray("shoot_system")]
+texture_filter = 1
+script = ExtResource("1_jouck")
+shoot_system = NodePath("shooting_system")
+
+[node name="shooting_system" type="Node2D" parent="." node_paths=PackedStringArray("firing_points")]
+script = ExtResource("2_nptsn")
+bullet_data = ExtResource("3_nptsn")
+firing_points = [NodePath("../left_gun"), NodePath("../right_gun")]
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_7kyp2")
+
+[node name="col_box" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_nptsn")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="hit_shape" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_16p68")
+debug_color = Color(1, 0.00873287, 0.0406472, 0.42)
+
+[node name="hit_shape_wings" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wh7iy")
+debug_color = Color(1, 0.00873287, 0.0406472, 0.42)
+
+[node name="left_gun" type="Node2D" parent="."]
+position = Vector2(-10, -3)
+
+[node name="right_gun" type="Node2D" parent="."]
+position = Vector2(10, -3)

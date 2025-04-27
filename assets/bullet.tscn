@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnc0mbwi7du3r"]
+
+[ext_resource type="Texture2D" uid="uid://blq2wpn2hrgu2" path="res://imports/bullet_test_sprite.png" id="1_5orsb"]
+[ext_resource type="Script" uid="uid://eb7xs42ym2rk" path="res://scripts/bullet_handler.gd" id="1_rcgj2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ev345"]
+radius = 3.0
+
+[node name="bullet" type="CharacterBody2D"]
+script = ExtResource("1_rcgj2")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_5orsb")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="hitbox_area" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_ev345")
+debug_color = Color(0.997394, 0, 0.166923, 0.42)
