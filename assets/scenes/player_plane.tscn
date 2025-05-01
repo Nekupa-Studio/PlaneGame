@@ -53,6 +53,6 @@ script = ExtResource("7_t3iv2")
 metadata/_custom_type_script = "uid://bytie10x37gad"
 
 [node name="RightGun" type="Node2D" parent="."]
-position = Vector2(9, -3)
+position = Vector2(10, -3)
 script = ExtResource("7_t3iv2")
 metadata/_custom_type_script = "uid://bytie10x37gad"
