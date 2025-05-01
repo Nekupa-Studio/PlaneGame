@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wob7b3l145q"]
+[gd_scene load_steps=10 format=3 uid="uid://wob7b3l145q"]
 
 [ext_resource type="Script" uid="uid://bjxavuyxp2u2j" path="res://scripts/handlers/enemy_handler.gd" id="1_nyjvj"]
 [ext_resource type="Script" uid="uid://br5ymhmeeio48" path="res://scripts/systems/shooting_system.gd" id="2_4lsqg"]
@@ -9,11 +9,9 @@
 [ext_resource type="Resource" uid="uid://b1m4fcs46ho67" path="res://custom_resources/planes/enemy_plane.tres" id="5_icab4"]
 [ext_resource type="Script" uid="uid://bytie10x37gad" path="res://scripts/types/firing_point.gd" id="8_npimb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_edavc"]
-size = Vector2(6, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_icab4"]
-size = Vector2(29.5, 6)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_npimb"]
+radius = 12.0
+height = 24.0
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("shoot_system")]
 script = ExtResource("1_nyjvj")
@@ -35,25 +33,20 @@ plane_data = ExtResource("5_icab4")
 hitbox = NodePath("../Hitbox")
 metadata/_custom_type_script = "uid://cf52b4eqd5ng3"
 
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("4_icab4")
+flip_v = true
+
 [node name="Hitbox" type="Area2D" parent="."]
 
-[node name="cylinder" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("RectangleShape2D_edavc")
-debug_color = Color(1, 0.0901961, 0.0588235, 0.419608)
-
-[node name="wings" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0.25, -2)
-shape = SubResource("RectangleShape2D_icab4")
+[node name="HitShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_npimb")
 debug_color = Color(1, 0.0901961, 0.0588235, 0.419608)
 
 [node name="SightArea" type="Area2D" parent="."]
 
 [node name="SightZone" type="CollisionPolygon2D" parent="SightArea"]
 polygon = PackedVector2Array(-3, 12, 3, 12, 16, 280, -16, 280)
-
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("4_icab4")
-flip_v = true
 
 [node name="LeftGun" type="Node2D" parent="."]
 position = Vector2(10, 3)

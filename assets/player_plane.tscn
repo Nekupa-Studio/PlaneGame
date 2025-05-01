@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c554anqe0gulh"]
+[gd_scene load_steps=10 format=3 uid="uid://c554anqe0gulh"]
 
 [ext_resource type="Script" uid="uid://1i7e0shlvsw2" path="res://scripts/handlers/player_handler.gd" id="1_jouck"]
 [ext_resource type="Texture2D" uid="uid://cw2miafgklw1j" path="res://imports/plane.png" id="2_7kyp2"]
@@ -12,11 +12,8 @@
 size = Vector2(30, 25)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_16p68"]
-radius = 5.5
+radius = 13.0
 height = 26.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh7iy"]
-size = Vector2(30, 8)
 
 [node name="PlayerPlane" type="CharacterBody2D" node_paths=PackedStringArray("shoot_system")]
 texture_filter = 1
@@ -46,13 +43,7 @@ shape = SubResource("RectangleShape2D_nptsn")
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="HitShape" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_16p68")
-debug_color = Color(1, 0.00873287, 0.0406472, 0.42)
-
-[node name="HitShapeWings" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_wh7iy")
 debug_color = Color(1, 0.00873287, 0.0406472, 0.42)
 
 [node name="LeftGun" type="Node2D" parent="."]
