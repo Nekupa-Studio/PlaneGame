@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlaneResource" load_steps=2 format=3 uid="uid://ijbi1r86jdgm"]
 
-[ext_resource type="Script" uid="uid://cethejtjtp5dy" path="res://res_definition/plane_resource.gd" id="1_h6bsp"]
+[ext_resource type="Script" uid="uid://cethejtjtp5dy" path="res://scripts/resources/plane_resource.gd" id="1_h6bsp"]
 
 [resource]
 script = ExtResource("1_h6bsp")

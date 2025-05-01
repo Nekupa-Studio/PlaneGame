@@ -33,7 +33,10 @@ movie_writer/movie_file="D:/Godot/Jeu Avions Pioupiou/waves.avi"
 [file_customization]
 
 folder_colors={
+"res://assets/resources/": "red",
+"res://assets/scenes/": "green",
 "res://scripts/handlers/": "red",
+"res://scripts/resources/": "purple",
 "res://scripts/systems/": "yellow",
 "res://scripts/types/": "green",
 "res://scripts/utilities/": "blue"

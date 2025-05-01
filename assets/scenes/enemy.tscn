@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bjxavuyxp2u2j" path="res://scripts/handlers/enemy_handler.gd" id="1_nyjvj"]
 [ext_resource type="Script" uid="uid://br5ymhmeeio48" path="res://scripts/systems/shooting_system.gd" id="2_4lsqg"]
-[ext_resource type="Resource" uid="uid://dibtgt0yuqfxi" path="res://custom_resources/bullets/proto_bullet_enemy.tres" id="3_nyjvj"]
+[ext_resource type="Resource" uid="uid://dibtgt0yuqfxi" path="res://assets/resources/bullets/proto_bullet_enemy.tres" id="3_nyjvj"]
 [ext_resource type="Script" uid="uid://cf52b4eqd5ng3" path="res://scripts/systems/damage_system.gd" id="4_edavc"]
 [ext_resource type="Texture2D" uid="uid://cw2miafgklw1j" path="res://imports/plane.png" id="4_icab4"]
 [ext_resource type="Script" uid="uid://d1h4iyr58cgx6" path="res://scripts/systems/vision_system.gd" id="4_npimb"]
-[ext_resource type="Resource" uid="uid://b1m4fcs46ho67" path="res://custom_resources/planes/enemy_plane.tres" id="5_icab4"]
+[ext_resource type="Resource" uid="uid://b1m4fcs46ho67" path="res://assets/resources/planes/enemy_plane.tres" id="5_icab4"]
 [ext_resource type="Script" uid="uid://bytie10x37gad" path="res://scripts/types/firing_point.gd" id="8_npimb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_npimb"]
