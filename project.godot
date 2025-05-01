@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameConfig="*res://scripts/utilities/game_config.gd"
+DebugTools="*res://scripts/utilities/debug_tools.gd"
 
 [display]
 
