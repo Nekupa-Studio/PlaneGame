@@ -4,8 +4,10 @@
 
 [resource]
 script = ExtResource("1_arcqi")
+modulate = Color(1, 0.54902, 0, 1)
 damage = 1.0
 speed = 300.0
+piercing_power = 1
 bullet_range = 500.0
 firing_mode = 0
 cooldown = 0.1

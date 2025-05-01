@@ -1,9 +1,0 @@
-extends Node
-
-# THIS SCRIPT IS FOR VARIABLE / CONSTANT CONFIGS
-
-# --- BULLETS --- 
-
-const BULLET_LAYER = -1
-
-const MIN_DAMAGE = 1

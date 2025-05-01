@@ -16,6 +16,6 @@ This is subject to change while still in prototype phase.
 
 ## Naming Conventions
 
-Class names: PascalCase
-Variable, nodes, files: snake_case
+Class names, nodes: PascalCase
+Variable, files: snake_case
 Constants: SCREAMING_CASE

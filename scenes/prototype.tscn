@@ -3,10 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://c554anqe0gulh" path="res://assets/player_plane.tscn" id="1_ixygg"]
 [ext_resource type="PackedScene" uid="uid://wob7b3l145q" path="res://assets/enemy.tscn" id="2_20kwy"]
 
-[node name="prototype" type="Node2D"]
+[node name="Prototype" type="Node2D"]
 
-[node name="player_plane" parent="." instance=ExtResource("1_ixygg")]
+[node name="PlayerPlane" parent="." instance=ExtResource("1_ixygg")]
 position = Vector2(321, 209)
 
-[node name="enemy" parent="." instance=ExtResource("2_20kwy")]
-position = Vector2(136, -180)
+[node name="Enemy" parent="." instance=ExtResource("2_20kwy")]
+position = Vector2(162, -139)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_20kwy")]
+position = Vector2(464, -192)

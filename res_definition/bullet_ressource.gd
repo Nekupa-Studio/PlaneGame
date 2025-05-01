@@ -17,6 +17,9 @@ enum FIRING_TYPES {
 ## Speed of the bullet. 
 @export var speed: float = 100
 
+## How many enemies can bullet go through
+@export var piercing_power: int = 1
+
 ## Max traveled distance by bullet. Used to determine its lifetime.
 @export var bullet_range: float = 100
 

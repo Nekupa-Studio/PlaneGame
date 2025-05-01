@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://c554anqe0gulh"]
+[gd_scene load_steps=11 format=3 uid="uid://c554anqe0gulh"]
 
-[ext_resource type="Script" uid="uid://1i7e0shlvsw2" path="res://scripts/player_handler.gd" id="1_jouck"]
+[ext_resource type="Script" uid="uid://1i7e0shlvsw2" path="res://scripts/handlers/player_handler.gd" id="1_jouck"]
 [ext_resource type="Texture2D" uid="uid://cw2miafgklw1j" path="res://imports/plane.png" id="2_7kyp2"]
-[ext_resource type="Script" uid="uid://br5ymhmeeio48" path="res://scripts/shooting_system.gd" id="2_nptsn"]
+[ext_resource type="Script" uid="uid://br5ymhmeeio48" path="res://scripts/systems/shooting_system.gd" id="2_nptsn"]
 [ext_resource type="Resource" uid="uid://co3qb18uxgc2w" path="res://custom_resources/bullets/proto_bullet.tres" id="3_nptsn"]
-[ext_resource type="Script" uid="uid://cf52b4eqd5ng3" path="res://scripts/damage_system.gd" id="4_16p68"]
+[ext_resource type="Script" uid="uid://cf52b4eqd5ng3" path="res://scripts/systems/damage_system.gd" id="4_16p68"]
 [ext_resource type="Resource" uid="uid://ijbi1r86jdgm" path="res://custom_resources/planes/player_plane.tres" id="5_wh7iy"]
+[ext_resource type="Script" uid="uid://bytie10x37gad" path="res://scripts/types/firing_point.gd" id="7_t3iv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nptsn"]
 size = Vector2(30, 25)
@@ -17,45 +18,49 @@ height = 26.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh7iy"]
 size = Vector2(30, 8)
 
-[node name="player_plane" type="CharacterBody2D" node_paths=PackedStringArray("shoot_system")]
+[node name="PlayerPlane" type="CharacterBody2D" node_paths=PackedStringArray("shoot_system")]
 texture_filter = 1
 script = ExtResource("1_jouck")
-shoot_system = NodePath("shooting_system")
+shoot_system = NodePath("ShootingSystem")
 actor_type = 1
 
-[node name="shooting_system" type="Node2D" parent="." node_paths=PackedStringArray("firing_points")]
+[node name="ShootingSystem" type="Node2D" parent="." node_paths=PackedStringArray("firing_points")]
 script = ExtResource("2_nptsn")
 bullet_data = ExtResource("3_nptsn")
-firing_points = [NodePath("../left_gun"), NodePath("../right_gun")]
+firing_points = [NodePath("../LeftGun"), NodePath("../RightGun")]
 
-[node name="damage_system" type="Node2D" parent="." node_paths=PackedStringArray("hitbox")]
+[node name="DamageSystem" type="Node2D" parent="." node_paths=PackedStringArray("hitbox")]
 script = ExtResource("4_16p68")
 plane_data = ExtResource("5_wh7iy")
-hitbox = NodePath("../hitbox")
+hitbox = NodePath("../Hitbox")
 enemy_type = -1
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_7kyp2")
 
-[node name="col_box" type="CollisionShape2D" parent="."]
+[node name="ColBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_nptsn")
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 
-[node name="hit_shape" type="CollisionShape2D" parent="hitbox"]
+[node name="HitShape" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_16p68")
 debug_color = Color(1, 0.00873287, 0.0406472, 0.42)
 
-[node name="hit_shape_wings" type="CollisionShape2D" parent="hitbox"]
+[node name="HitShapeWings" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_wh7iy")
 debug_color = Color(1, 0.00873287, 0.0406472, 0.42)
 
-[node name="left_gun" type="Node2D" parent="."]
+[node name="LeftGun" type="Node2D" parent="."]
 position = Vector2(-10, -3)
+script = ExtResource("7_t3iv2")
+metadata/_custom_type_script = "uid://bytie10x37gad"
 
-[node name="right_gun" type="Node2D" parent="."]
-position = Vector2(10, -3)
+[node name="RightGun" type="Node2D" parent="."]
+position = Vector2(9, -3)
+script = ExtResource("7_t3iv2")
+metadata/_custom_type_script = "uid://bytie10x37gad"

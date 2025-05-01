@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://wob7b3l145q"]
+
+[ext_resource type="Script" uid="uid://bjxavuyxp2u2j" path="res://scripts/enemy_handler.gd" id="1_nyjvj"]
+[ext_resource type="Script" uid="uid://br5ymhmeeio48" path="res://scripts/shooting_system.gd" id="2_4lsqg"]
+[ext_resource type="Resource" uid="uid://dibtgt0yuqfxi" path="res://custom_resources/bullets/proto_bullet_enemy.tres" id="3_nyjvj"]
+[ext_resource type="Script" uid="uid://cf52b4eqd5ng3" path="res://scripts/damage_system.gd" id="4_edavc"]
+[ext_resource type="Texture2D" uid="uid://cw2miafgklw1j" path="res://imports/plane.png" id="4_icab4"]
+[ext_resource type="Script" uid="uid://d1h4iyr58cgx6" path="res://scripts/vision_system.gd" id="4_npimb"]
+[ext_resource type="Resource" uid="uid://b1m4fcs46ho67" path="res://custom_resources/planes/enemy_plane.tres" id="5_icab4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edavc"]
+size = Vector2(6, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icab4"]
+size = Vector2(29.5, 6)
+
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("shoot_system")]
+script = ExtResource("1_nyjvj")
+shoot_system = NodePath("ShootingSystem")
+speed = null
+actor_type = null
+
+[node name="ShootingSystem" type="Node2D" parent="." node_paths=PackedStringArray("firing_points")]
+script = ExtResource("2_4lsqg")
+bullet_data = ExtResource("3_nyjvj")
+firing_points = [NodePath("../left_gun"), NodePath("../right_gun")]
+direction = Vector2(0, 1)
+metadata/_custom_type_script = "uid://br5ymhmeeio48"
+
+[node name="VisionSystem" type="Node2D" parent="." node_paths=PackedStringArray("sight_area")]
+script = ExtResource("4_npimb")
+sight_area = NodePath("../sight_area")
+
+[node name="DamageSystem" type="Node2D" parent="." node_paths=PackedStringArray("hitbox")]
+script = ExtResource("4_edavc")
+plane_data = ExtResource("5_icab4")
+hitbox = NodePath("../hitbox")
+metadata/_custom_type_script = "uid://cf52b4eqd5ng3"
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="cylinder" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_edavc")
+debug_color = Color(1, 0.0901961, 0.0588235, 0.419608)
+
+[node name="wings" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0.25, -2)
+shape = SubResource("RectangleShape2D_icab4")
+debug_color = Color(1, 0.0901961, 0.0588235, 0.419608)
+
+[node name="sight_area" type="Area2D" parent="."]
+
+[node name="sight_zone" type="CollisionPolygon2D" parent="sight_area"]
+polygon = PackedVector2Array(-3, 12, 3, 12, 16, 280, -16, 280)
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("4_icab4")
+flip_v = true
+
+[node name="left_gun" type="Node2D" parent="."]
+position = Vector2(10, 3)
+
+[node name="right_gun" type="Node2D" parent="."]
+position = Vector2(-10, 3)
+
+[connection signal="enemy_detected" from="VisionSystem" to="." method="on_enemy_in_sight"]
+[connection signal="enemy_lost" from="VisionSystem" to="." method="on_enemy_lost"]
