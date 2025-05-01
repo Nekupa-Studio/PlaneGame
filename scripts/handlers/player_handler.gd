@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 	move()
 	
 	# TODO: this is debug. remove in prod lmao.
-	if Input.is_action_just_pressed("DEBUG_RELOAD"): 
+	if Input.is_action_just_pressed("DEBUG_RELOAD") and OS.is_debug_build(): 
 		get_tree().reload_current_scene()
 	
 	if Input.is_action_pressed("shoot"):
