@@ -18,7 +18,7 @@ const FP_DEBUG_DIRECTION = false
 const BULLET_LAYER = -1
 
 ## Path to bullet scene
-const BULLET_SCENE = "res://assets/scenes/bullet.tscn"
+const BULLET_SCENE = preload("res://assets/scenes/bullet.tscn")
 
 ## Minimum damage a bullet should deal regardless of armor.
 const MIN_DAMAGE = 1
