@@ -19,6 +19,7 @@ shoot_system = NodePath("ShootingSystem")
 
 [node name="ShootingSystem" type="Node2D" parent="." node_paths=PackedStringArray("firing_points")]
 script = ExtResource("2_4lsqg")
+toggled = null
 bullet_data = ExtResource("3_nyjvj")
 firing_points = [NodePath("../LeftGun"), NodePath("../RightGun")]
 metadata/_custom_type_script = "uid://br5ymhmeeio48"

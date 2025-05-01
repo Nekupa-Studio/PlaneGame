@@ -9,7 +9,7 @@ enum ERR_FLAGS {
 
 signal shooting_failed(reason: int)
 
-const bullet_scene: PackedScene = preload("res://assets/bullet.tscn")
+const bullet_scene: PackedScene = GameConfig.BULLET_SCENE
 
 @export var toggled: bool = true
 @export var bullet_data: BulletResource

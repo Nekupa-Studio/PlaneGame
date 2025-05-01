@@ -23,6 +23,7 @@ actor_type = 1
 
 [node name="ShootingSystem" type="Node2D" parent="." node_paths=PackedStringArray("firing_points")]
 script = ExtResource("2_nptsn")
+toggled = null
 bullet_data = ExtResource("3_nptsn")
 firing_points = [NodePath("../LeftGun"), NodePath("../RightGun")]
 

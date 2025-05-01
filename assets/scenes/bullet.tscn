@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnc0mbwi7du3r"]
 
-[ext_resource type="Texture2D" uid="uid://blq2wpn2hrgu2" path="res://imports/bullet_test_sprite.png" id="1_5orsb"]
-[ext_resource type="Script" uid="uid://eb7xs42ym2rk" path="res://scripts/handlers/bullet_handler.gd" id="1_rcgj2"]
+[ext_resource type="Script" uid="uid://eb7xs42ym2rk" path="res://scripts/handlers/bullet_handler.gd" id="1_8hx1n"]
+[ext_resource type="Texture2D" uid="uid://blq2wpn2hrgu2" path="res://imports/bullet_test_sprite.png" id="2_0t1ha"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ev345"]
 radius = 3.0
 
 [node name="Bullet" type="CharacterBody2D"]
-script = ExtResource("1_rcgj2")
+script = ExtResource("1_8hx1n")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_5orsb")
+texture = ExtResource("2_0t1ha")
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
