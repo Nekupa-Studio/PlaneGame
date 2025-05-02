@@ -1,4 +1,4 @@
-# Conventions
+# Contributions
 
 This file contains informations on how to write acceptable code for this
 project. If this prototype becomes the main version, then you should
