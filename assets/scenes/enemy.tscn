@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wob7b3l145q"]
+[gd_scene load_steps=11 format=3 uid="uid://wob7b3l145q"]
 
 [ext_resource type="Script" uid="uid://bjxavuyxp2u2j" path="res://scripts/handlers/enemy_handler.gd" id="1_nyjvj"]
 [ext_resource type="Script" uid="uid://br5ymhmeeio48" path="res://scripts/systems/shooting_system.gd" id="2_4lsqg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cw2miafgklw1j" path="res://imports/plane.png" id="4_icab4"]
 [ext_resource type="Script" uid="uid://d1h4iyr58cgx6" path="res://scripts/systems/vision_system.gd" id="4_npimb"]
 [ext_resource type="Resource" uid="uid://b1m4fcs46ho67" path="res://assets/resources/planes/enemy_plane.tres" id="5_icab4"]
+[ext_resource type="Script" uid="uid://qrc67qkjq0kj" path="res://scripts/types/sight_zone.gd" id="8_4t03u"]
 [ext_resource type="Script" uid="uid://bytie10x37gad" path="res://scripts/types/firing_point.gd" id="8_npimb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_npimb"]
@@ -45,6 +46,8 @@ shape = SubResource("CapsuleShape2D_npimb")
 debug_color = Color(1, 0.0901961, 0.0588235, 0.419608)
 
 [node name="SightArea" type="Area2D" parent="."]
+script = ExtResource("8_4t03u")
+metadata/_custom_type_script = "uid://qrc67qkjq0kj"
 
 [node name="SightZone" type="CollisionPolygon2D" parent="SightArea"]
 polygon = PackedVector2Array(-3, 12, 3, 12, 16, 280, -16, 280)

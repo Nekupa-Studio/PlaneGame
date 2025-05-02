@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://e553t15x35cj"]
+[gd_scene load_steps=4 format=3 uid="uid://e553t15x35cj"]
 
 [ext_resource type="PackedScene" uid="uid://c554anqe0gulh" path="res://assets/scenes/player_plane.tscn" id="1_ixygg"]
 [ext_resource type="PackedScene" uid="uid://wob7b3l145q" path="res://assets/scenes/enemy.tscn" id="2_20kwy"]
+[ext_resource type="PackedScene" uid="uid://c2tkrmaa7xjks" path="res://assets/scenes/base_turret.tscn" id="3_nhfup"]
 
 [node name="Prototype" type="Node2D"]
 
@@ -13,3 +14,6 @@ position = Vector2(162, -139)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_20kwy")]
 position = Vector2(464, -192)
+
+[node name="BaseTurret" parent="." instance=ExtResource("3_nhfup")]
+position = Vector2(258, 123)

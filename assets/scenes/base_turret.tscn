@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2tkrmaa7xjks"]
+
+[ext_resource type="Script" uid="uid://dlnpg84ibcin8" path="res://scripts/handlers/turret_handler.gd" id="1_7uvba"]
+[ext_resource type="Script" uid="uid://d1h4iyr58cgx6" path="res://scripts/systems/vision_system.gd" id="2_qxnqt"]
+[ext_resource type="Script" uid="uid://br5ymhmeeio48" path="res://scripts/systems/shooting_system.gd" id="3_d7xgu"]
+[ext_resource type="Resource" uid="uid://tnnjqh0soqdc" path="res://assets/resources/bullets/proto_turret_bullet.tres" id="4_qxnqt"]
+[ext_resource type="Texture2D" uid="uid://ryw3ycvsekcd" path="res://imports/autogun-placeholder.png" id="5_j135f"]
+[ext_resource type="Script" uid="uid://qrc67qkjq0kj" path="res://scripts/types/sight_zone.gd" id="6_qxnqt"]
+[ext_resource type="Script" uid="uid://bytie10x37gad" path="res://scripts/types/firing_point.gd" id="6_v06l7"]
+
+[node name="BaseTurret" type="CharacterBody2D"]
+script = ExtResource("1_7uvba")
+actor_type = 1
+
+[node name="VisionSystem" type="Node2D" parent="." node_paths=PackedStringArray("sight_area")]
+script = ExtResource("2_qxnqt")
+sight_area = NodePath("../SightZone")
+target_mask = -1
+metadata/_custom_type_script = "uid://d1h4iyr58cgx6"
+
+[node name="ShootingSystem" type="Node2D" parent="." node_paths=PackedStringArray("firing_points")]
+script = ExtResource("3_d7xgu")
+bullet_data = ExtResource("4_qxnqt")
+firing_points = [NodePath("../LeftGun"), NodePath("../RightGun")]
+metadata/_custom_type_script = "uid://br5ymhmeeio48"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("5_j135f")
+offset = Vector2(0.06, -6.305)
+
+[node name="SightZone" type="Area2D" parent="."]
+position = Vector2(0, -1)
+script = ExtResource("6_qxnqt")
+metadata/_custom_type_script = "uid://qrc67qkjq0kj"
+
+[node name="SightPolygon" type="CollisionPolygon2D" parent="SightZone"]
+polygon = PackedVector2Array(-8, -7, -64, -255, 64, -255, 8, -7)
+
+[node name="LeftGun" type="Node2D" parent="."]
+position = Vector2(-6, -20)
+script = ExtResource("6_v06l7")
+metadata/_custom_type_script = "uid://bytie10x37gad"
+
+[node name="RightGun" type="Node2D" parent="."]
+position = Vector2(6, -20)
+script = ExtResource("6_v06l7")
+metadata/_custom_type_script = "uid://bytie10x37gad"
+
+[connection signal="enemy_detected" from="VisionSystem" to="." method="_on_vision_system_enemy_detected"]
+[connection signal="enemy_lost" from="VisionSystem" to="." method="_on_vision_system_enemy_lost"]

@@ -8,7 +8,7 @@ const LEAVING = false
 signal enemy_detected(enemy: GameActor)
 signal enemy_lost(enemy: GameActor)
 
-@export var sight_area: Area2D
+@export var sight_area: SightZone
 @export var target_mask := GameActor.ACTOR_TYPES.PLAYER
 
 func seeking_behavior(col: GameActor) -> void:
@@ -22,7 +22,12 @@ func locked_behavior(col: GameActor) -> void:
 
 func handle_area(area, entering):
 	var col = area.get_parent()
-	var is_target = col is GameActor and col.actor_type == target_mask
+	var is_target = (
+		col is GameActor and
+		col.actor_type == target_mask and
+		not area is SightZone
+	)
+	
 	if not is_target: return
 	
 	if entering: seeking_behavior(col)

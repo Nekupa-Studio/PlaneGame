@@ -8,8 +8,21 @@ class_name FiringPoint
 	
 var direction: Vector2 : get = get_fire_direction
 
+@onready var parent: GameActor = get_parent()
+
+func _ready() -> void:
+	var err_mess := "Invalid parent for FiringPoint at %s (should be GameActor)" % get_path()
+	assert(parent is GameActor, err_mess)
+
 func get_fire_direction() -> Vector2:
-	var dir = Vector2.from_angle(deg_to_rad(angle))
+
+	var final_angle: float = deg_to_rad(angle)
+	
+	# This takes into account parent rotation if not in editor.
+	# Substraction since we have opposite rotation system with Godot.
+	final_angle -= parent.rotation if not Engine.is_editor_hint() else 0
+	
+	var dir = Vector2.from_angle(final_angle)
 	dir.y *= -1
 	return dir
 	
