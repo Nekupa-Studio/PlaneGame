@@ -11,7 +11,6 @@
 [node name="BaseTurret" type="CharacterBody2D" node_paths=PackedStringArray("shooting_system")]
 script = ExtResource("1_7uvba")
 shooting_system = NodePath("ShootingSystem")
-rot_per_second = 1.0
 rot_off_time = 0.1
 actor_type = 1
 
