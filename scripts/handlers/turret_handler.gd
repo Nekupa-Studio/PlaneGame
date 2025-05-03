@@ -9,6 +9,7 @@ var current_state := STATES.SCANNING
 @export var target_min_distance: float = 30
 
 @export_category("🔁 Rotation Parameters")
+@export var start_clockwise: bool = true
 @export var rot_per_second: float = 0.5
 @export var rot_off_time: float = 0.3
 @export_range(0,180,1) var rot_range: float = 180
@@ -16,7 +17,6 @@ var current_state := STATES.SCANNING
 var target: GameActor
 
 var rotating: bool = true
-var rot_dir: int = 1
 
 var up_angle: float = 270
 var time_since_rot_stop: float = 0
@@ -24,6 +24,7 @@ var time_since_rot_stop: float = 0
 @onready var max_angle: float = up_angle + rot_range / 2
 @onready var min_angle: float = up_angle - rot_range / 2
 @onready var rot_speed: float = deg_to_rad(rot_range * rot_per_second)
+@onready var rot_dir: int = 1 if start_clockwise else -1
 
 func locked_behavior(_delta: float):
 	if not target:
