@@ -23,6 +23,7 @@ func move() -> void:
 
 func _ready() -> void:
 	assert(shoot_system, "Player ShootingSystem wasn't initialized at %s." % get_path())
+	$Hitbox.add_to_group(GameConfig.TARGETABLE_GROUP)
 	
 func _physics_process(_delta: float) -> void:
 	

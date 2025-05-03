@@ -4,6 +4,10 @@
 ## debug option, ensure your implementation will never ship it in prod builds.
 extends Node
 
+# --- GROUPS ---
+
+const TARGETABLE_GROUP = "targetable"
+
 # --- TOOL SPECIFIC ---
 
 ## Length of the direction indicator for FiringPoints

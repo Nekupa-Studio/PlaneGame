@@ -32,7 +32,8 @@ func change_state(new_state: STATES):
 
 func _ready() -> void:
 	assert(shoot_system, "Shoot system not initialized for Enemy at %s" % get_path())
-
+	$Hitbox.add_to_group(GameConfig.TARGETABLE_GROUP)
+	
 func _physics_process(delta: float) -> void:
 	
 	match current_state:

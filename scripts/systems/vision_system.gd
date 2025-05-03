@@ -25,7 +25,7 @@ func handle_area(area, entering):
 	var is_target = (
 		col is GameActor and
 		col.actor_type == target_mask and
-		not area is SightZone
+		area.is_in_group(GameConfig.TARGETABLE_GROUP)
 	)
 	
 	if not is_target: return

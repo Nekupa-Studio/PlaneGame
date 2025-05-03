@@ -81,7 +81,6 @@ func _physics_process(delta: float) -> void:
 		STATES.SCANNING: scanning_behavior(delta)
 
 func _on_vision_system_enemy_detected(enemy: GameActor) -> void:
-	
 	var target_distance = enemy.global_position.distance_to(global_position)
 	var is_target_far_enough = target_distance >= target_min_distance
 	

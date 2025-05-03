@@ -16,4 +16,4 @@ position = Vector2(162, -139)
 position = Vector2(464, -192)
 
 [node name="BaseTurret" parent="." instance=ExtResource("3_nhfup")]
-position = Vector2(258, 123)
+position = Vector2(320, 333)
