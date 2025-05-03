@@ -19,7 +19,6 @@ func get_fire_direction() -> Vector2:
 	var final_angle: float = deg_to_rad(-angle)
 	
 	final_angle += parent.rotation if not Engine.is_editor_hint() else 0.0
-	final_angle += rotation
 	
 	var dir = Vector2.from_angle(final_angle)
 	return dir
