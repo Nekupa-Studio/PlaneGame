@@ -16,14 +16,12 @@ func _ready() -> void:
 
 func get_fire_direction() -> Vector2:
 
-	var final_angle: float = deg_to_rad(angle)
+	var final_angle: float = deg_to_rad(-angle)
 	
-	# This takes into account parent rotation if not in editor.
-	# Substraction since we have opposite rotation system with Godot.
-	final_angle -= parent.rotation if not Engine.is_editor_hint() else 0
+	final_angle += parent.rotation if not Engine.is_editor_hint() else 0.0
+	final_angle += rotation
 	
 	var dir = Vector2.from_angle(final_angle)
-	dir.y *= -1
 	return dir
 	
 func _on_angle_changed(new: float) -> void:
