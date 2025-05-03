@@ -6,6 +6,9 @@ enum STATES {SCANNING, LOCKED}
 var current_state := STATES.SCANNING
 
 @export var shooting_system: ShootingSystem
+@export var target_min_distance: float = 30
+
+@export_category("🔁 Rotation Parameters")
 @export var rot_per_second: float = 0.5
 @export var rot_off_time: float = 0.3
 @export_range(0,180,1) var rot_range: float = 180
@@ -30,7 +33,9 @@ func locked_behavior(_delta: float):
 	look_at(target.global_position)
 	shooting_system.fire()
 	
-	if is_angle_out_of_bounds():
+	var target_distance = target.global_position.distance_to(global_position)
+	
+	if is_angle_out_of_bounds() or target_distance <= target_min_distance:
 		current_state = STATES.SCANNING
 		target = null
 		return
@@ -75,7 +80,11 @@ func _physics_process(delta: float) -> void:
 		STATES.SCANNING: scanning_behavior(delta)
 
 func _on_vision_system_enemy_detected(enemy: GameActor) -> void:
-	if current_state == STATES.SCANNING:
+	
+	var target_distance = enemy.global_position.distance_to(global_position)
+	var is_target_far_enough = target_distance >= target_min_distance
+	
+	if current_state == STATES.SCANNING and is_target_far_enough:
 		current_state = STATES.LOCKED
 		target = enemy
 
