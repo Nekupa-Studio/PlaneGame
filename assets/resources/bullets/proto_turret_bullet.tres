@@ -6,9 +6,9 @@
 script = ExtResource("1_28se6")
 modulate = Color(1.92523e-06, 0.811577, 0.471021, 1)
 damage = 1.0
-speed = 300.0
+speed = 600.0
 piercing_power = 1
-bullet_range = 500.0
+bullet_range = 300.0
 firing_mode = 1
-cooldown = 0.075
+cooldown = 1.0
 metadata/_custom_type_script = "uid://wqivct5bd50b"
