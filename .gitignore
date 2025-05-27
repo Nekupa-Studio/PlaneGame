@@ -2,3 +2,4 @@
 .godot/
 project.godot
 *.tmp
+*.import
